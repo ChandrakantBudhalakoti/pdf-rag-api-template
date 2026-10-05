@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "category": "direct fact / date",
+    "question": "In which year and in which city was Brightleaf Analytics founded?",
+    "expected_answer": "It was founded in March 2016 in Pune, India.",
+    "source": "brightleaf_company_profile.pdf",
+    "page": 1,
+    "must_include": [["2016"], ["Pune"]],
+    "criteria": "Answer must state both the year 2016 and the city Pune."
+  },
+  {
+    "id": 2,
+    "category": "numeric (price)",
+    "question": "How much does the LeafSight Growth plan cost?",
+    "expected_answer": "US$99 per user per month.",
+    "source": "brightleaf_company_profile.pdf",
+    "page": 2,
+    "must_include": [["99"], ["per user", "/user", "each user"]],
+    "criteria": "Answer must give the price 99 (US dollars) and that it is charged per user."
+  },
+  {
+    "id": 3,
+    "category": "numeric, two facts from one passage",
+    "question": "How many days of paid annual leave do full-time employees get, and how many unused days can be carried forward to the next year?",
+    "expected_answer": "24 days of paid annual leave per calendar year; up to 8 unused days can be carried forward.",
+    "source": "brightleaf_employee_handbook.pdf",
+    "page": 1,
+    "must_include": [["24"], ["8", "eight"]],
+    "criteria": "Answer must contain both 24 (annual leave days) and 8 (carry-forward days)."
+  },
+  {
+    "id": 4,
+    "category": "direct fact (disambiguation)",
+    "question": "What is the notice period for an employee who has already completed probation?",
+    "expected_answer": "60 days.",
+    "source": "brightleaf_employee_handbook.pdf",
+    "page": 2,
+    "must_include": [["60", "sixty"]],
+    "criteria": "Answer must state 60 days (the 30-day period applies only during probation)."
+  },
+  {
+    "id": 5,
+    "category": "numeric (amount)",
+    "question": "What is the yearly learning and development budget per employee?",
+    "expected_answer": "US$1,200 per employee per calendar year.",
+    "source": "brightleaf_employee_handbook.pdf",
+    "page": 2,
+    "must_include": [["1,200", "1200"]],
+    "criteria": "Answer must state 1,200 (US dollars)."
+  },
+  {
+    "id": 6,
+    "category": "policy condition",
+    "question": "Can a customer get a refund on an annual subscription?",
+    "expected_answer": "Yes, a full refund if the annual subscription is cancelled within 30 days of purchase; after 30 days there is no refund, but the service stays active until the end of the paid term.",
+    "source": "brightleaf_support_and_refund_policy.pdf",
+    "page": 2,
+    "must_include": [["30"], ["full refund", "fully refund", "full"]],
+    "criteria": "Answer must mention a full refund and the 30-day window after purchase."
+  },
+  {
+    "id": 7,
+    "category": "reasoning over a table of ranges",
+    "question": "If LeafSight's monthly uptime was 98.5%, what service credit would a customer be eligible for?",
+    "expected_answer": "A 25% service credit (uptime from 95.0% up to but not including 99.0%).",
+    "source": "brightleaf_support_and_refund_policy.pdf",
+    "page": 1,
+    "must_include": [["25%", "25 %", "25 percent"]],
+    "criteria": "Answer must identify the 25% credit tier; 98.5% falls in the 95.0%-99.0% band."
+  },
+  {
+    "id": 8,
+    "category": "direct fact (time)",
+    "question": "What is the first-response time for a Priority 1 (P1) incident?",
+    "expected_answer": "Within 1 hour, 24/7.",
+    "source": "brightleaf_support_and_refund_policy.pdf",
+    "page": 1,
+    "must_include": [["1 hour", "one hour", "60 minutes"]],
+    "criteria": "Answer must state 1 hour."
+  },
+  {
+    "id": 9,
+    "category": "multi-document combination",
+    "question": "Who is the CEO of Brightleaf Analytics, and how many days of paid sick leave do its employees get per year?",
+    "expected_answer": "The CEO is Asha Menon (company profile); employees get 12 days of paid sick leave per calendar year (employee handbook).",
+    "source": "brightleaf_company_profile.pdf; brightleaf_employee_handbook.pdf",
+    "page": "1; 1",
+    "must_include": [["Asha Menon"], ["12", "twelve"]],
+    "criteria": "Answer must combine two documents: name Asha Menon as CEO and state 12 sick-leave days."
+  },
+  {
+    "id": 10,
+    "category": "unanswerable (hallucination check)",
+    "question": "What was Brightleaf Analytics' total revenue in 2024?",
+    "expected_answer": "Not stated in the documents; the system must say it could not find the answer.",
+    "source": null,
+    "page": null,
+    "expect_not_found": true,
+    "criteria": "Answer must be the not-found message and must not invent a revenue figure."
+  }
+]

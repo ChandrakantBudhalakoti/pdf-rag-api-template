@@ -1,0 +1,26 @@
+# Secrets - never commit real credentials
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+build/
+dist/
+
+# Local PostgreSQL (binaries + data dir created by scripts/local_postgres.py)
+.local-postgres/
+
+# Private documents and personal notes - never part of the template
+data/private/
+prompt.md
+questions.MD
+
+# Editors / OS
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store

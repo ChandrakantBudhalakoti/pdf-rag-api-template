@@ -1,0 +1,17 @@
+# Keep secrets, local state and personal files out of the image.
+.env
+.git
+.venv
+venv
+.local-postgres
+data/private
+evaluation/results
+tests
+docs
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.vscode
+.idea
+prompt.md
+questions.MD

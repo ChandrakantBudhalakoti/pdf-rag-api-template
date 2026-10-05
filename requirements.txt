@@ -1,0 +1,24 @@
+# Verified together on Windows 11 + Python 3.14.7 (also compatible with Python 3.11+).
+langchain-core==1.6.5
+langchain-openai==1.6.6
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+langchain-postgres==0.0.18
+openai==3.19.2
+# Google Gemini provider (AI_PROVIDER=gemini)
+langchain-google-genai==4.4.0
+google-genai==2.25.0
+psycopg[binary]==3.3.6
+SQLAlchemy==2.1.1
+pgvector==0.3.6
+pypdf==6.19.0
+python-dotenv==1.2.3
+# HTTP API (rag_pipeline.api)
+fastapi==0.142.1
+uvicorn[standard]==0.54.0
+python-multipart==0.0.32
+# Tests (httpx is used by FastAPI's TestClient)
+pytest==9.1.1
+httpx==0.28.1
+# Only used by scripts/make_sample_pdfs.py to (re)generate the sample PDFs.
+reportlab==5.0.1

@@ -1,0 +1,374 @@
+{
+  "meta": {
+    "run_at": "2026-09-28 12:15 UTC",
+    "provider": "gemini",
+    "embedding_model": "gemini-embedding-001",
+    "llm_model": "gemini-3.1-flash-lite",
+    "chunk_size": 1000,
+    "chunk_overlap": 200,
+    "top_k": 4,
+    "collection": "rag_documents",
+    "retrieval_hits": 9,
+    "retrieval_total": 9,
+    "api_errors": 0
+  },
+  "summary": {
+    "total": 10,
+    "correct": 10,
+    "incorrect": 0,
+    "accuracy": 1.0,
+    "target": 0.85,
+    "passed": true
+  },
+  "results": [
+    {
+      "id": 1,
+      "category": "direct fact / date",
+      "question": "In which year and in which city was Brightleaf Analytics founded?",
+      "expected_answer": "It was founded in March 2016 in Pune, India.",
+      "expected_source": "brightleaf_company_profile.pdf",
+      "expected_page": 1,
+      "criteria": "Answer must state both the year 2016 and the city Pune.",
+      "answer": "Brightleaf Analytics was founded in March 2016 in Pune, India.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_company_profile.pdf, page 1"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.2672
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.2974
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.3026
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.3223
+        }
+      ],
+      "latency_s": 33.35
+    },
+    {
+      "id": 2,
+      "category": "numeric (price)",
+      "question": "How much does the LeafSight Growth plan cost?",
+      "expected_answer": "US$99 per user per month.",
+      "expected_source": "brightleaf_company_profile.pdf",
+      "expected_page": 2,
+      "criteria": "Answer must give the price 99 (US dollars) and that it is charged per user.",
+      "answer": "The LeafSight Growth plan costs US$99 per user per month.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_company_profile.pdf, page 2"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.2143
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.3261
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.3521
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.3532
+        }
+      ],
+      "latency_s": 18.2
+    },
+    {
+      "id": 3,
+      "category": "numeric, two facts from one passage",
+      "question": "How many days of paid annual leave do full-time employees get, and how many unused days can be carried forward to the next year?",
+      "expected_answer": "24 days of paid annual leave per calendar year; up to 8 unused days can be carried forward.",
+      "expected_source": "brightleaf_employee_handbook.pdf",
+      "expected_page": 1,
+      "criteria": "Answer must contain both 24 (annual leave days) and 8 (carry-forward days).",
+      "answer": "Full-time employees receive 24 days of paid annual leave per calendar year, and up to 8 unused annual leave days can be carried forward to the next calendar year.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_employee_handbook.pdf, page 1"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 1",
+          "distance": 0.318
+        },
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 2",
+          "distance": 0.3513
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.4266
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.4326
+        }
+      ],
+      "latency_s": 4.68
+    },
+    {
+      "id": 4,
+      "category": "direct fact (disambiguation)",
+      "question": "What is the notice period for an employee who has already completed probation?",
+      "expected_answer": "60 days.",
+      "expected_source": "brightleaf_employee_handbook.pdf",
+      "expected_page": 2,
+      "criteria": "Answer must state 60 days (the 30-day period applies only during probation).",
+      "answer": "The notice period for an employee who has completed their probation is 60 days.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_employee_handbook.pdf, page 2"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 2",
+          "distance": 0.2859
+        },
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 1",
+          "distance": 0.3892
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.4087
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.4239
+        }
+      ],
+      "latency_s": 12.08
+    },
+    {
+      "id": 5,
+      "category": "numeric (amount)",
+      "question": "What is the yearly learning and development budget per employee?",
+      "expected_answer": "US$1,200 per employee per calendar year.",
+      "expected_source": "brightleaf_employee_handbook.pdf",
+      "expected_page": 2,
+      "criteria": "Answer must state 1,200 (US dollars).",
+      "answer": "Each employee has a learning and development budget of US$1,200 per calendar year.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_employee_handbook.pdf, page 2"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 2",
+          "distance": 0.341
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.3938
+        },
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 1",
+          "distance": 0.4086
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.4178
+        }
+      ],
+      "latency_s": 11.61
+    },
+    {
+      "id": 6,
+      "category": "policy condition",
+      "question": "Can a customer get a refund on an annual subscription?",
+      "expected_answer": "Yes, a full refund if the annual subscription is cancelled within 30 days of purchase; after 30 days there is no refund, but the service stays active until the end of the paid term.",
+      "expected_source": "brightleaf_support_and_refund_policy.pdf",
+      "expected_page": 2,
+      "criteria": "Answer must mention a full refund and the 30-day window after purchase.",
+      "answer": "Yes, annual subscriptions receive a full refund if cancelled within 30 days of purchase; if cancelled after 30 days, they are not refunded.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_support_and_refund_policy.pdf, page 2"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.2468
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.3333
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.3769
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.3804
+        }
+      ],
+      "latency_s": 11.42
+    },
+    {
+      "id": 7,
+      "category": "reasoning over a table of ranges",
+      "question": "If LeafSight's monthly uptime was 98.5%, what service credit would a customer be eligible for?",
+      "expected_answer": "A 25% service credit (uptime from 95.0% up to but not including 99.0%).",
+      "expected_source": "brightleaf_support_and_refund_policy.pdf",
+      "expected_page": 1,
+      "criteria": "Answer must identify the 25% credit tier; 98.5% falls in the 95.0%-99.0% band.",
+      "answer": "A customer is eligible for a 25% service credit if the monthly uptime is 98.5%.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_support_and_refund_policy.pdf, page 1"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.2535
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.2797
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.3053
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.3502
+        }
+      ],
+      "latency_s": 11.16
+    },
+    {
+      "id": 8,
+      "category": "direct fact (time)",
+      "question": "What is the first-response time for a Priority 1 (P1) incident?",
+      "expected_answer": "Within 1 hour, 24/7.",
+      "expected_source": "brightleaf_support_and_refund_policy.pdf",
+      "expected_page": 1,
+      "criteria": "Answer must state 1 hour.",
+      "answer": "The first response time for a Priority 1 (P1) incident is within 1 hour, 24/7.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_support_and_refund_policy.pdf, page 1"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.2467
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 1",
+          "distance": 0.3325
+        },
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 1",
+          "distance": 0.3968
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.4136
+        }
+      ],
+      "latency_s": 16.48
+    },
+    {
+      "id": 9,
+      "category": "multi-document combination",
+      "question": "Who is the CEO of Brightleaf Analytics, and how many days of paid sick leave do its employees get per year?",
+      "expected_answer": "The CEO is Asha Menon (company profile); employees get 12 days of paid sick leave per calendar year (employee handbook).",
+      "expected_source": "brightleaf_company_profile.pdf; brightleaf_employee_handbook.pdf",
+      "expected_page": "1; 1",
+      "criteria": "Answer must combine two documents: name Asha Menon as CEO and state 12 sick-leave days.",
+      "answer": "The CEO of Brightleaf Analytics is Asha Menon, and employees receive 12 days of paid sick leave per calendar year.",
+      "found": true,
+      "correct": true,
+      "reason": "all required facts present",
+      "cited_sources": [
+        "brightleaf_employee_handbook.pdf, page 1",
+        "brightleaf_company_profile.pdf, page 1"
+      ],
+      "retrieved": [
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 1",
+          "distance": 0.2736
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.2959
+        },
+        {
+          "reference": "brightleaf_employee_handbook.pdf, page 2",
+          "distance": 0.3137
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.3175
+        }
+      ],
+      "latency_s": 13.89
+    },
+    {
+      "id": 10,
+      "category": "unanswerable (hallucination check)",
+      "question": "What was Brightleaf Analytics' total revenue in 2024?",
+      "expected_answer": "Not stated in the documents; the system must say it could not find the answer.",
+      "expected_source": null,
+      "expected_page": null,
+      "criteria": "Answer must be the not-found message and must not invent a revenue figure.",
+      "answer": "I could not find the answer in the provided documents.",
+      "found": false,
+      "correct": true,
+      "reason": "correctly reported that the answer is not in the documents",
+      "cited_sources": [],
+      "retrieved": [
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.2752
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 2",
+          "distance": 0.2936
+        },
+        {
+          "reference": "brightleaf_support_and_refund_policy.pdf, page 2",
+          "distance": 0.3006
+        },
+        {
+          "reference": "brightleaf_company_profile.pdf, page 1",
+          "distance": 0.3207
+        }
+      ],
+      "latency_s": 8.76
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+services:
+  postgres:
+    # Official pgvector image = PostgreSQL 16 with the pgvector extension pre-installed.
+    # (The plain postgres:16 image does NOT include pgvector.)
+    image: pgvector/pgvector:pg16
+    container_name: rag-pgvector
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ragdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ragdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    # FastAPI service: http://localhost:8000/docs
+    build: .
+    container_name: rag-api
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Inside Docker the database host is the service name, not localhost.
+      DATABASE_URL: postgresql+psycopg://postgres:postgres@postgres:5432/ragdb
+    ports:
+      - "8000:8000"
+    volumes:
+      # Client PDFs live on the host, so uploads and added files survive container rebuilds.
+      - ./data/pdfs:/app/data/pdfs
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
